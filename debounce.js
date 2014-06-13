@@ -1,3 +1,7 @@
+/**
+ * Debounce by Louy Alakkad
+ * https://github.com/louy/Debounce/
+ */
 ( function() {
 
 	/**
@@ -14,7 +18,7 @@
 	 */
 
 	var name = 'Debounce',
-		version = '0.1',
+		version = '0.2',
 		global = this,
 		s = {};
 
@@ -32,7 +36,7 @@
 			}
 			return;
 		}
-		
+
 		if( s[id] ) {
 			clearTimeout( s[id].id );
 			s[id] = false;
@@ -75,5 +79,8 @@
 	};
 
 	global[ name ].version = version;
+	global[ name ].isSet = function( id ) {
+		return !!s[id];
+	};
 
 } ) ();
