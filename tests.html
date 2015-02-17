@@ -13,13 +13,13 @@
   <script>
 
 	test( "Variable", function() {
-	  ok( typeof Debounce !== "undefined", "Variable Defined" );
-	  ok( typeof Debounce.version !== "undefined", "With Version" );
+	  ok( typeof debounce !== "undefined", "Variable Defined" );
+	  ok( typeof debounce.version !== "undefined", "With Version" );
 	} );
 
 	asyncTest( "Timeout Schedule", function() {
 		expect( 1 );
-		Debounce( 'test', 10, function() {
+		debounce( 'test', 10, function() {
 			ok( true, "schedule with 10ms delay" );
 		} );
 		setTimeout( start, 11 );
@@ -28,7 +28,7 @@
 	asyncTest( "Interval Schedule", function() {
 		expect( 1 );
 		var stack = [];
-		Debounce( 'test', 10, function() {
+		debounce( 'test', 10, function() {
 			stack.push('');
 			return stack.length < 3;
 		} );
@@ -41,7 +41,7 @@
 	asyncTest( "Interval Schedule with variable delays", function() {
 		expect( 2 );
 		var i = 0;
-		Debounce( 'test', 10, function() {
+		debounce( 'test', 10, function() {
 			++ i;
 			return i > 2 ? false : i * 10;
 		} );
@@ -54,14 +54,14 @@
 		}, 43 );
 	} );
 	
-	asyncTest( "Override (Debounce)", function() {
+	asyncTest( "Override (debounce)", function() {
 		expect( 1 );
 
-		Debounce( 'test', 100, function() {
+		debounce( 'test', 100, function() {
 			ok( false, 'override failed' );
 		} );
 		setTimeout( function() {
-			Debounce( 'test', 100, function() {
+			debounce( 'test', 100, function() {
 				ok( true, 'override passed' );
 			} );
 		}, 20 );
@@ -75,12 +75,12 @@
 
 		var test = function() {
 			ok( true, '' );
-		}
+		};
 
-		Debounce( 'test', 100, test );
+		debounce( 'test', 100, test );
 
 		setTimeout( function() {
-			Debounce( 'test', true );
+			debounce( 'test', true );
 		}, 20 );
 
 		setTimeout( function() {
@@ -93,12 +93,12 @@
 
 		var test = function() {
 			ok( true, '' );
-		}
+		};
 
-		Debounce( 'test', 100, test );
+		debounce( 'test', 100, test );
 
 		setTimeout( function() {
-			Debounce( 'test' );
+			debounce( 'test' );
 		}, 20 );
 
 		setTimeout( function() {

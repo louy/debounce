@@ -1,5 +1,5 @@
 /**
- * Debounce by Louy Alakkad
+ * Debounce 0.2.0 by Louy Alakkad
  * https://github.com/louy/Debounce/
  */
 ( function() {
@@ -11,14 +11,14 @@
 	 *
 	 * fn can return any of the following:
 	 * - true(ish) : re-schedule the same fn after the same delay.
-	 * - number : re-schedule the same fn after (number) delay.
-	 * - false(ish) : don't re-schedule anything.
+	 * - number    : re-schedule the same fn after (number) delay.
+	 * - false(ish): don't re-schedule anything.
 	 *
 	 * if fn overrides the same id (i.e. calls Debounce() with the same id) then return value will be ignored.
 	 */
 
-	var name = 'Debounce',
-		version = '0.2',
+	var name = 'debounce',
+		version = '0.2.0',
 		global = this,
 		s = {};
 
@@ -47,7 +47,7 @@
 			delay: delay,
 			run: 0,
 			set: function() {
-				return this.id = setTimeout( this.cb, this.delay );
+				return ( this.id = setTimeout( this.cb, this.delay ) );
 			},
 		};
 
@@ -67,7 +67,7 @@
 				exec = true;
 			}
 
-			if( exec == true ) {
+			if( !!exec ) {
 				// reschedule
 				s[id].set();
 			} else {
