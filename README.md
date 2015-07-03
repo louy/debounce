@@ -6,15 +6,15 @@ Javascript setTimeout and setInterval replacement, with advanced options and deb
 Usage
 -----
 
-    Debounce( id, delay, callback )
+    debounce( id, delay, callback )
   
 This will call the function `callback` after `delay` milliseconds.
 
-    Debounce( id, true )
+    debounce( id, true )
 
 This will call the function assigned to `id` instantly and cancel the assigned timeout.
 
-    Debounce( id )
+    debounce( id )
 
 This will cancel the callback assigned with `id` and won't call it.
 
@@ -38,7 +38,7 @@ Examples
 Scroll events
 
     $(document).on('scroll', function() {
-      Debounce( `scroll-event`, 500, scrollEvent );
+      debounce( `scroll-event`, 500, scrollEvent );
     });
     
     function scrollEvent() {
@@ -47,11 +47,11 @@ Scroll events
 
 Timeout functions
 
-    Debounce( `ajax-timeout`, 30000, function() {
+    debounce( `ajax-timeout`, 30000, function() {
       ajax.abort();
     });
     ajax.done(function() {
       // Cancel the callback
-      Debounce( `check-loaded` );
+      debounce( `check-loaded` );
     });
 
