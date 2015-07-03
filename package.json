@@ -12,10 +12,26 @@
   "dependencies": {
     "grunt-contrib-qunit": "*"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:louy/Debounce.git"
-    }
-  ]
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/louy/Debounce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/louy/Debounce/issues"
+  },
+  "homepage": "https://github.com/louy/Debounce#readme",
+  "main": "debounce.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node-qunit-phantomjs tests.html"
+  },
+  "keywords": [
+    "debounce",
+    "throttle",
+    "timeout",
+    "interval",
+    "delay"
+  ],
+  "author": "Louy Alakkad",
+  "license": "GPL-3.0"
 }
