@@ -1,28 +1,34 @@
 /**
- * Debounce 0.2.0 by Louy Alakkad
- * https://github.com/louy/Debounce/
+ * debounce 0.2.0 by Louy Alakkad
+ * https://github.com/louy/debounce/
  */
-( function() {
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else if (typeof exports === 'object') {
+        module.exports = factory();
+    } else {
+        root.debounce = factory();
+    }
+}(this, function () {
 
 	/**
-	 * Debounce( id, delay, fn ); // run fn after delay, it will cancel and override (debounce) previous one with same id.
-	 * Debounce( id, true ); // run fn with specified id instantly, cancel specified delay earlier.
-	 * Debounce( id ); // cancel fn with specified delay.
+	 * debounce( id, delay, fn ); // run fn after delay, it will cancel and override (debounce) previous one with same id.
+	 * debounce( id, true ); // run fn with specified id instantly, cancel specified delay earlier.
+	 * debounce( id ); // cancel fn with specified delay.
 	 *
 	 * fn can return any of the following:
 	 * - true(ish) : re-schedule the same fn after the same delay.
 	 * - number    : re-schedule the same fn after (number) delay.
 	 * - false(ish): don't re-schedule anything.
 	 *
-	 * if fn overrides the same id (i.e. calls Debounce() with the same id) then return value will be ignored.
+	 * if fn overrides the same id (i.e. calls debounce() with the same id) then return value will be ignored.
 	 */
 
-	var name = 'debounce',
-		version = '0.2.0',
-		global = this,
+	var version = '0.2.0',
 		s = {};
 
-	global[ name ] = function( id, delay, fn ) {
+	var debounce = function( id, delay, fn ) {
 
 		if( id && !fn ) {
 			if( s[id] ) {
@@ -78,9 +84,10 @@
 		s[id].set();
 	};
 
-	global[ name ].version = version;
-	global[ name ].isSet = function( id ) {
+	debounce.version = version;
+	debounce.isSet = function( id ) {
 		return !!s[id];
 	};
 
-} ) ();
+	return debounce;
+} ) );

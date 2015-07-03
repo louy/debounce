@@ -14,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/louy/Debounce.git"
+    "url": "git@github.com/louy/debounce.git"
   },
   "bugs": {
-    "url": "https://github.com/louy/Debounce/issues"
+    "url": "https://github.com/louy/debounce/issues"
   },
-  "homepage": "https://github.com/louy/Debounce#readme",
+  "homepage": "https://github.com/louy/debounce#readme",
   "main": "debounce.js",
   "devDependencies": {},
   "scripts": {
