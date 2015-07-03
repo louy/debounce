@@ -22,7 +22,7 @@
 		debounce( 'test', 10, function() {
 			ok( true, "schedule with 10ms delay" );
 		} );
-		setTimeout( start, 11 );
+		setTimeout( start, 15 );
 	} );
 	
 	asyncTest( "Interval Schedule", function() {
@@ -35,7 +35,7 @@
 		setTimeout( function() {
 			equal( stack.length, 3, 'Interval run 3 times' );
 			start();
-		}, 33 );
+		}, 35 );
 	} );
 	
 	asyncTest( "Interval Schedule with variable delays", function() {
@@ -47,11 +47,11 @@
 		} );
 		setTimeout( function() {
 			equal( i, 2, 'Interval run with different delays' );
-		}, 22 );
+		}, 25 );
 		setTimeout( function() {
 			equal( i, 3, 'Interval run with different delays' );
 			start();
-		}, 43 );
+		}, 45 );
 	} );
 	
 	asyncTest( "Override (debounce)", function() {
@@ -67,7 +67,7 @@
 		}, 20 );
 		setTimeout( function() {
 			start();
-		}, 122 );
+		}, 125 );
 	} );
 
 	asyncTest( "Force run", function() {
