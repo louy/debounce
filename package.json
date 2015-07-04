@@ -1,5 +1,5 @@
 {
-  "name": "debounce",
+  "name": "js-debounce",
   "description": "Javascript setTimeout and setInterval replacement, with advanced options and debounce ability.",
   "version": "0.2.0",
   "maintainers": [
