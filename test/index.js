@@ -43,6 +43,12 @@ describe('debounce', function() {
     }, timeout * 3);
   });
 
+  it('has #isSet', function() {
+    debounce('test', 10, function() {});
+
+    expect(debounce.isSet('test')).to.equal(true);
+  });
+
   it('schedules interval', function(done) {
     var spy = sinon.spy(function() { return true; }), timeout = 10;
 
