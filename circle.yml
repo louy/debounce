@@ -1,0 +1,15 @@
+general:
+  artifacts:
+    - "coverage"
+
+test:
+  override:
+    - npm test
+    - npm run coverage
+
+dependencies:
+  cache_directories:
+    - "node_modules"
+  override:
+    - npm install
+    - npm prune
