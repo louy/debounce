@@ -43,6 +43,10 @@ describe('debounce', function() {
     }, timeout * 3);
   });
 
+  it('cancels non-existent schedule', function() {
+    debounce('test2'); // shouldn't throw
+  });
+
   it('has #isSet', function() {
     debounce('test', 10, function() {});
 
