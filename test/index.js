@@ -43,6 +43,16 @@ describe('debounce', function() {
     }, timeout * 3);
   });
 
+  it('cancels non-existent schedule', function() {
+    debounce('test2'); // shouldn't throw
+  });
+
+  it('has #isSet', function() {
+    debounce('test', 10, function() {});
+
+    expect(debounce.isSet('test')).to.equal(true);
+  });
+
   it('schedules interval', function(done) {
     var spy = sinon.spy(function() { return true; }), timeout = 10;
 
@@ -88,6 +98,20 @@ describe('debounce', function() {
       expect(spy).to.be.calledOnce;
       done();
     }, timeout * 3);
+  });
+
+  it('overrides (inline)', function(done) {
+    var spy = sinon.spy(), timeout = 10;
+
+    debounce('test', timeout * 2, function() {
+      debounce('test', timeout, spy);
+    });
+
+    setTimeout(function() {
+      expect(spy).to.be.calledOnce;
+
+      done();
+    }, timeout * 4);
   });
 
   it('runs instantly', function(done) {
