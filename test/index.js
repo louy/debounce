@@ -70,10 +70,11 @@ describe('debounce', function() {
   it('schedules interval with variable delays', function(done) {
     this.slow(100);
 
+    var i = 0;
     var spy = sinon.spy(function() {
       ++i;
       return i > 2 ? false : timeout * 2;
-    }), timeout = 10, i = 0;
+    }), timeout = 10;
 
     debounce('test', timeout, spy);
 
