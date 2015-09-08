@@ -9,9 +9,6 @@
       "web": "https://github.com/louy"
     }
   ],
-  "dependencies": {
-    "grunt-contrib-qunit": "*"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com/louy/debounce.git"
@@ -21,7 +18,10 @@
   },
   "homepage": "https://github.com/louy/debounce#readme",
   "main": "debounce.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-qunit": "^0.7.0"
+  },
   "scripts": {
     "test": "grunt test"
   },
