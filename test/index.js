@@ -96,6 +96,20 @@ describe('debounce', function() {
     }, timeout * 3);
   });
 
+  it('overrides (inline)', function(done) {
+    var spy = sinon.spy(), timeout = 10;
+
+    debounce('test', timeout * 2, function() {
+      debounce('test', timeout, spy);
+    });
+
+    setTimeout(function() {
+      expect(spy).to.be.calledOnce;
+
+      done();
+    }, timeout * 4);
+  });
+
   it('runs instantly', function(done) {
     var spy = sinon.spy(), timeout = 10;
 
