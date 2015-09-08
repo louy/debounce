@@ -1,10 +1,13 @@
-Debounce [![Build Status](https://travis-ci.org/louy/Debounce.svg?branch=master)](https://travis-ci.org/louy/Debounce)
-========
+# Debounce 
+[![Circle CI](https://img.shields.io/circleci/project/louy/debounce.svg)](https://circleci.com/gh/louy/debounce)
+[![NPM](https://img.shields.io/npm/v/debounce.svg)](https://www.npmjs.com/package/debounce)
+[![VersionEye](https://img.shields.io/versioneye/d/nodejs/debounce.svg)](https://www.versioneye.com/nodejs/debounce/)
+[![Codecov](https://img.shields.io/codecov/c/github/louy/debounce.svg)](https://codecov.io/github/louy/debounce/)
+[![Codacy](https://img.shields.io/codacy/60c6a5326a6b4de39040f0b5cb6c367a.svg)](https://www.codacy.com/app/louy08/debounce)
 
 Javascript setTimeout and setInterval replacement, with advanced options and debounce ability.
 
-Usage
------
+## Usage
 
     debounce( id, delay, callback )
   
@@ -22,8 +25,7 @@ This will cancel the callback assigned with `id` and won't call it.
 The callback function will be called with one argument, that's the number of times the _current timeout_ has been run. It will always be 0 unless you return `true` from your callback, then it will increase.
 
 
-Return values
---
+## Return values
 
 Inside a callback function, you can return any of these values to reassign the callback to the same or a different delay.
 * __True(ish)__ reschedule the same callback after the same delay again.
@@ -32,8 +34,7 @@ Inside a callback function, you can return any of these values to reassign the c
 
 You can also override the timeout with the same `id` inside the callback, and if you do so the return value will be ignored.
 
-Examples
---
+## Examples
 
 Scroll events
 
