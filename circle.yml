@@ -6,6 +6,7 @@ test:
   override:
     - npm test
     - npm run coverage
+    - cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage
 
 dependencies:
   cache_directories:

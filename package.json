@@ -20,6 +20,7 @@
   "main": "debounce.js",
   "devDependencies": {
     "chai": "^3.2.0",
+    "codacy-coverage": "^1.1.3",
     "istanbul": "^0.3.19",
     "mocha": "^2.3.2",
     "sinon": "^1.16.1",
