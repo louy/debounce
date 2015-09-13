@@ -102,7 +102,7 @@
 
   debounce.version = version;
   debounce.isSet = function(id) {
-    return !!s[id];
+    return s.hasOwnProperty(id) && !!s[id].fn;
   };
 
   return debounce;
