@@ -35,6 +35,31 @@
   var version = '0.2.0',
   s = {};
 
+  function cb() {
+    var prevID = this.id,
+        exec = this.fn(this.run);
+    ++this.run;
+
+    if (prevID !== this.id) {
+      // detected override, cancel
+      return;
+    }
+
+    if (typeof exec === 'number') {
+      // re-schedule after (number) ms.
+      this.delay = exec;
+      exec = true;
+    }
+
+    if (!!exec) {
+      // reschedule
+      this.set();
+    } else {
+      // remove
+      delete this.fn;
+    }
+  }
+
   var debounce = function(id, delay, fn) {
 
     if (id && !fn) {
@@ -53,41 +78,23 @@
 
     if (s[id]) {
       clearTimeout(s[id].id);
-      s[id] = false;
+      s[id].fn = fn;
+      if (delay) {
+        s[id].delay = delay;
+      }
+    } else {
+      s[id] = {
+        fn: fn,
+        delay: delay,
+        run: 0,
+        set: function() {
+          return (this.id = setTimeout(this.cb, this.delay));
+        },
+      };
     }
 
-    s[id] = {
-      fn: fn,
-      delay: delay,
-      run: 0,
-      set: function() {
-        return (this.id = setTimeout(this.cb, this.delay));
-      },
-    };
-
     s[id].cb = function() {
-      var prevID = s[id].id,
-      exec = fn(s[id].run);
-      ++s[id].run;
-
-      if (prevID !== s[id].id) {
-        // detected override, cancel
-        return;
-      }
-
-      if (typeof exec === 'number') {
-        // re-schedule after (number) ms.
-        s[id].delay = exec;
-        exec = true;
-      }
-
-      if (!!exec) {
-        // reschedule
-        s[id].set();
-      } else {
-        // remove
-        delete s[id];
-      }
+      cb.apply(s[id]);
     };
 
     s[id].set();
