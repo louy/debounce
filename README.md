@@ -1,7 +1,7 @@
 # Debounce 
 [![Circle CI](https://img.shields.io/circleci/project/louy/debounce.svg)](https://circleci.com/gh/louy/debounce)
 [![NPM](https://img.shields.io/npm/v/js-debounce.svg)](https://www.npmjs.com/package/js-debounce)
-[![VersionEye](https://img.shields.io/versioneye/d/nodejs/js-debounce.svg)](https://www.versioneye.com/nodejs/js-debounce/)
+[![VersionEye](https://img.shields.io/versioneye/d/user/projects/55f344733ed8940014000028.svg)](https://www.versioneye.com/nodejs/js-debounce/)
 [![Codecov](https://img.shields.io/codecov/c/github/louy/debounce.svg)](https://codecov.io/github/louy/debounce/)
 [![Codacy](https://img.shields.io/codacy/60c6a5326a6b4de39040f0b5cb6c367a.svg)](https://www.codacy.com/app/louy08/debounce)
 
