@@ -38,6 +38,9 @@
     "interval",
     "delay"
   ],
+  "typescript": {
+    "definition": "debounce.d.ts"
+  },
   "author": "Louy Alakkad",
   "license": "GPL-3.0"
 }
